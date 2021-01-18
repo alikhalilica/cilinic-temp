@@ -27,10 +27,10 @@ class Ticket(models.Model):
         (3, 'سفارش پروژه'),
 	)
     name = models.CharField(max_length=200)
-    #family_name = models.CharField(max_length=200)
+    family_name = models.CharField(max_length=200,null=True)
     email = models.EmailField(default=None)
     phone_number = models.CharField(max_length=200,blank=True)
-    #subject =  models.CharField(max_length=200)
+    subject =  models.CharField(max_length=200,null=True)
     ticket_type = models.PositiveSmallIntegerField(choices=ticket_CHOICES,default=1,blank=True)
     body = models.TextField()
     checked = models.BooleanField(default=False)

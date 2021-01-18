@@ -40,10 +40,10 @@ def contact_view(request):
         form = ContactForm(data=request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'تیکت شما دریافت شد منتظر پاسخ از طرف ما باشید')
+            messages.success(request, 'your ticket has been recieved')
             return HttpResponseRedirect(request.path_info)
         else:
-            messages.error(request, 'ارسال تیکت با مشکل مواجه شد لطفا فیلد ها را بررسی نمایید')
+            messages.error(request, 'wew have got an error')
             return HttpResponse(status=400)
             #return HttpResponseRedirect(request.path_info)
     else:

@@ -1,0 +1,35 @@
+<h3>Booking Appointment</h3>
+<ul>
+  {% for patient in patients %}
+  <li>
+    {{patient.name}} - {{patient.contact}} - {{Patient.email}} - {{Patient.booking_date}} - {{Patient.appointment_date}} - {{Patient.helth_department }} - {{Patient.history }}
+  </li>
+  <a onclick="myFunction('{{patient.id}}')">Delete </a>
+  <a  href="{% url 'booking_app:edit' id=patient.id %}" >Edit </a>
+
+  {% endfor %}
+</ul>
+<form action="{% url 'booking_app:edit' id=selected_patient.id %}" method="post">
+  {% csrf_token %} {{form.as_p}}
+
+  <button type="submit">Send</button>
+  <a  href="{% url 'booking_app:index' %}">Cancel</a>
+</form>
+
+<script>
+    function myFunction(patient_id) {
+        var r = confirm("sure you want to delete?");
+        if (r == true) {
+            console.log(patient_id);
+            console.log("yes");
+            const url = "http://127.0.0.1:8000/delete/"+patient_id
+            const Http = new XMLHttpRequest();
+            Http.open("GET", url);
+            Http.send();
+
+            Http.onreadystatechange = (e) => {console.log(Http.responseText)}
+            //window.location.replace("http://127.0.0.1:8000");
+        } 
+        //window.location.href = "/";
+    }
+</script>

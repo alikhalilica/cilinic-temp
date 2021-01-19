@@ -1,7 +1,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from . models import HelthDepartment , Patient
 from . forms import PatientForm
-from django.shortcuts import render,redirect,get_objects_or_404
+from django.shortcuts import render,redirect,get_object_or_404
 #import requests
 
 
@@ -12,8 +12,8 @@ def index(request):
     #categories = Category.objects.all()
     patients = Patient.objects.all()
     form = PatientForm()
-    context = {"patients":patients,"form":form}
-    return render(request,"index.html",context)
+    context = {"form":form}
+    return render(request, "booking_app/index.html",context)
 
     # Delete
 def delete(request,id):
@@ -56,5 +56,4 @@ def add_(request):
         if form.is_valid():
             
             form.save()
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-       
+    return render (request, "website/index.html")       

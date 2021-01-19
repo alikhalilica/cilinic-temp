@@ -33,8 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls', namespace='website')),
     path('blog/', include('blog.urls', namespace='blog')),
-    
-
+    path('booking_app/', include('booking_app.urls', namespace='booking_app')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path('djga/', include('google_analytics.urls')),

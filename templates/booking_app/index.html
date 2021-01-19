@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+<h3>Booking Appointment</h3>
+<ul>
+  {% for patient in patients %}
+  <li>
+    {{patient.name}} - {{patient.contact}} - {{Patient.email}} - {{Patient.booking_date}} - {{Patient.appointment_date}} - {{Patient.helth_department }} - {{Patient.history }}
+  </li>
+
+<a onclick="myFunction('{{patient.id}}')">Delete </a>
+<a  href="{% url 'booking_app:edit' id=patient.id %}" >Edit </a>
+
+{% endfor %}
+</ul>
+<form action="{% url 'booking_app:add' %}" method="post">
+{% csrf_token %} {{form.as_p}}
+<input type="datetime-local" id="birthdaytime" name="birthdaytime">
+<button type="submit">Send</button>
+<a  href="{% url 'booking_app:index' %}">Cancel</a>
+</form>
+
+<script>
+  function myFunction(patient_id) {
+      var r = confirm("sure you want to delete?");
+      if (r == true) {
+          console.log(patient_id);
+          console.log("yes");
+          const url = "http://127.0.0.1:8000/delete/"+patient_id
+          const Http = new XMLHttpRequest();
+          Http.open("GET", url);
+          Http.send();
+
+          Http.onreadystatechange = (e) => {console.log(Http.responseText)}
+          //window.location.replace("http://127.0.0.1:8000");
+      } 
+      //window.location.href = "/";
+  }
+</script>
+</html>

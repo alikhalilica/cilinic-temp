@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'website',
     'paginator',
     'google_analytics',
+    'booking_app',
 
 ]
 

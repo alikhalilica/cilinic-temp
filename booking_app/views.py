@@ -10,6 +10,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 # Retrieve
 def index(request):
     #categories = Category.objects.all()
+    helthDepartments=HelthDepartment.objects.all()
     patients = Patient.objects.all()
     form = PatientForm()
     context = {"form":form}

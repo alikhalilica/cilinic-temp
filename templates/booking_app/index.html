@@ -1,3 +1,6 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<!--
 <html>
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -42,3 +45,143 @@
   }
 </script>
 </html>
+-->
+	<!-- Start Appointment -->
+	<div id="appointment" class="appointment-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Appointment</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="well-block">
+                        <div class="well-title">
+                            <h2>Book an Appointment</h2>
+                        </div>
+                        <form>
+                            <!-- Form start -->
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="name">Name</label>
+                                        <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <!-- Form start -->
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label class="control-label" for="name">Contact</label>
+                                      <input id="contact" name="contact" type="text" placeholder="Contac" class="form-control input-md">
+                                  </div>
+                              </div>
+                              <!-- Form start -->
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Booking Date</label>
+                                    <input id="booking_date" name="booking_date" type="text" placeholder="Booking Date" class="form-control input-md">
+                                </div>
+                            </div>
+                                <!-- Text input-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="email">Email</label>
+                                        <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="date">Appointment Date</label>
+                                       <!-- <input id="appointment_date" name="appointment_date" type="text" placeholder="Appointment Date" class="form-control input-md">-->
+                                        <input type="datetime-local" id="appointment_date" name="appointment_date">
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <!-- 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="time">Appointment Time</label>
+                                        <select id="appointment_time" name="appointment_time" class="form-control">
+                                            <option value="8:00 to 9:00">8:00 to 9:00</option>
+                                            <option value="9:00 to 10:00">9:00 to 10:00</option>
+                                            <option value="10:00 to 1:00">10:00 to 1:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                -->
+                                <!-- Text input -->
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label class="control-label" for="name">History</label>
+                                      <input id="history" name="history" type="text" placeholder="History " class="form-control input-md">
+                                  </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label" for="appointmentfor">Helth Department</label>
+                                        <select id="helth_department" name="helth_department" class="form-control">
+                                            <option value="Choose Department">Choose Department</option>
+
+                                            {% for helthDepartment in helthDepartments %}
+                                            {{helthDepartments.name}}
+                                            {% endfor %}
+                                        <!--     
+											<option value="Gynacology">Gynacology</option>
+											<option value="Dermatologist">Dermatologist</option>
+											<option value="Orthology">Orthology</option>
+											<option value="Anesthesiology">Anesthesiology</option>
+											<option value="Ayurvedic">Ayurvedic</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                    -->
+                                <!-- Button -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button id="singlebutton" name="singlebutton" class="new-btn-d br-2">Make An Appointment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form end -->
+                    </div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="well-block">
+                        <div class="well-title">
+                            <h2>Why Appointment with Us</h2>
+                        </div>
+                        <div class="feature-block">
+                            <div class="feature feature-blurb-text">
+                                <h4 class="feature-title">24/7 Hours Available</h4>
+                                <div class="feature-content">
+                                    <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
+                                </div>
+                            </div>
+                            <div class="feature feature-blurb-text">
+                                <h4 class="feature-title">Experienced Staff Available</h4>
+                                <div class="feature-content">
+                                    <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
+                                </div>
+                            </div>
+                            <div class="feature feature-blurb-text">
+                                <h4 class="feature-title">Low Price & Fees</h4>
+                                <div class="feature-content">
+                                    <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <!-- End Appointment -->
+  {% endblock content %}

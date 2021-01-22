@@ -1,4 +1,40 @@
 {% extends "base.html" %} {% load static %}
 {% block content %}
 
+<div class="item">
+    <div class="serviceBox">
+        <a href="#" class="image fit"><img src="{{ post.image.url }}" alt="{{ post.image_alt }}" /></a>
+        <header class="major">
+            <span class="date">{{post.published_date}}</span>
+            <h6>{{post.author}}</h6>
+            <h1>{{post.title}}</h1>
+        </header>
+        <p class="description">
+            {{post.content|safe}}
+        </p>
+    </div>
+
+
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://icc-aria.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+
+</div>
+
 {% endblock content %}

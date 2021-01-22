@@ -34,7 +34,7 @@ def PostIndex(request, tag_slug=None, cat_slug=None, author_user=None):
         posts = posts.filter(category__name=urlunquote(cat_slug))
         msg = f"فیلتر شده بر اساس دسته بندی: \"{urlunquote(cat_slug)}\""
 
-    posts = paginate(request,posts,5)
+    posts = paginate(request,posts,2)
     context = {"posts": posts,'tag': tag, "msg": msg, 'cat': cat_slug, "meta": meta}
     return render(request, "blog/blog_index.html", context)
 

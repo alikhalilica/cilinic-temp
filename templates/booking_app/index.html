@@ -1,5 +1,10 @@
 {% extends "base.html" %} {% load static %}
 {% block content %}
+<style>
+    input, #id_email {
+        color : red;
+    }
+</style>
 <!--
 <html>
   <head>
@@ -63,8 +68,9 @@
                         <div class="well-title">
                             <h2>Book an Appointment</h2>
                         </div>
-                        <form>
+                       
                             <!-- Form start -->
+                            <form action="{% url 'booking_app:add' %}" method="post">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
@@ -122,26 +128,20 @@
                                       <input id="history" name="history" type="text" placeholder="History " class="form-control input-md">
                                   </div>
                                 </div>
-                                <!-- Select Basic -->
+                            
+                                <!-- Select Basic --> 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="appointmentfor">Helth Department</label>
                                         <select id="helth_department" name="helth_department" class="form-control">
-                                            <option value="Choose Department">Choose Department</option>
-
-                                            {% for helthDepartment in helthDepartments %}
-                                            {{helthDepartments.name}}
+                                            {% for x, y in form.fields.helth_department.choices %}
+                                                <option value="{{ x }}">{{ y }}</option>
+                    
                                             {% endfor %}
-                                        <!--     
-											<option value="Gynacology">Gynacology</option>
-											<option value="Dermatologist">Dermatologist</option>
-											<option value="Orthology">Orthology</option>
-											<option value="Anesthesiology">Anesthesiology</option>
-											<option value="Ayurvedic">Ayurvedic</option>
                                         </select>
                                     </div>
                                 </div>
-                                    -->
+                                    
                                 <!-- Button -->
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -150,7 +150,13 @@
                                 </div>
                             </div>
                         </form>
+                        {{form.email.label}}
+                        {{form.email}}
+
+                        
+          
                         <!-- form end -->
+                       
                     </div>
 				</div>
 				<div class="col-lg-6 col-md-6">

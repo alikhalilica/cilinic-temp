@@ -21,21 +21,23 @@ STATUS = ((0, "Draft"), (1, "Publish"))
 
 
 class Ticket(models.Model):
+    '''
     ticket_CHOICES = (
 		(1, 'ارتباط با ما'),
 		(2, 'دوره های آنلاین'),
         (3, 'سفارش پروژه'),
 	)
+    '''
     name = models.CharField(max_length=200)
-    family_name = models.CharField(max_length=200,null=True)
+    #family_name = models.CharField(max_length=200,null=True)
     email = models.EmailField(default=None)
     phone_number = models.CharField(max_length=200,blank=True)
     subject =  models.CharField(max_length=200,null=True)
-    ticket_type = models.PositiveSmallIntegerField(choices=ticket_CHOICES,default=1,blank=True)
+    #ticket_type = models.PositiveSmallIntegerField(choices=ticket_CHOICES,default=1,blank=True)
     body = models.TextField()
-    checked = models.BooleanField(default=False)
+    #checked = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
+    #updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-created_date']

@@ -1,5 +1,5 @@
 from blog.models import Post
-from website.form import ContactForm
+from .form import ContactForm
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect

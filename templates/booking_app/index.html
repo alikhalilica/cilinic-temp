@@ -86,13 +86,13 @@
                                       <input id="contact" name="contact" type="text" placeholder="Contac" class="form-control input-md">
                                   </div>
                               </div>
-                              <!-- Form start -->
+                              <!-- Form start 
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label" for="name">Booking Date</label>
                                     <input id="booking_date" name="booking_date" type="text" placeholder="Booking Date" class="form-control input-md">
                                 </div>
-                            </div>
+                            </div>-->
                                 <!-- Text input-->
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -105,7 +105,7 @@
                                     <div class="form-group">
                                         <label class="control-label" for="date">Appointment Date</label>
                                        <!-- <input id="appointment_date" name="appointment_date" type="text" placeholder="Appointment Date" class="form-control input-md">-->
-                                        <input type="datetime-local" id="appointment_date" name="appointment_date">
+                                       {{form.appointment_date}}
                                     </div>
                                 </div>
                                 <!-- Select Basic -->
@@ -150,8 +150,7 @@
                                 </div>
                             </div>
                         </form>
-                        {{form.email.label}}
-                        {{form.email}}
+
 
                         
           

@@ -16,7 +16,7 @@ class Patient(models.Model):
     email = models.EmailField()
     booking_date = models.DateTimeField(auto_now_add=True,blank=True,null=True)
     appointment_date = models.DateTimeField(null=True , blank=True)
-    appointment_time = models.DateTimeField(null=True , blank=True)
+    #appointment_time = models.TimeField(null=True , blank=True)
     helth_department = models.ForeignKey(HelthDepartment,on_delete=models.CASCADE,null=True) 
     history = models.TextField()
     #patient_contact = models.PhoneField()
